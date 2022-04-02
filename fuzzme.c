@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 int fuzzme(char *buf)
 {
   if(strlen(buf) >= 3)
@@ -17,6 +18,13 @@ int fuzzme(char *buf)
 
 #define BUFSZ 256
 
+int LLVMFuzzerTestOneInput(char *data, size_t size) {
+    fuzzme(data);
+
+    return 0;
+}
+
+/*
 int main(int argc, char** argv)
 {
     char buf[BUFSZ] = { 0 };
@@ -41,4 +49,5 @@ int main(int argc, char** argv)
 
     return 0;
 }
+*/
 
